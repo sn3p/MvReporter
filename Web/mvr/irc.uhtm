@@ -1,0 +1,452 @@
+<html>
+<head>
+<title>MvReporter 3.0 XR3 - Administration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body bgcolor="#454346">
+<center>
+<table width="550" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="550" height="73" colspan="10"><a href="root.uhtm"><img src="/mvrimg/xr3_1A.jpg" width="550" height="73" alt="" border="0"></a></td>
+	</tr>
+	<tr>
+		<td width="84" height="20" colspan="2"><a href="general.uhtm"><img src="/mvrimg/xr3_2B.jpg" width="84" height="20" alt="" border="0"></a></td>
+		<td width="36" height="20"><a href="irc.uhtm"><img src="/mvrimg/xr3_3C.jpg" width="36" height="20" alt="" border="0"></a></td>
+		<td width="57" height="20"><a href="teams.uhtm"><img src="/mvrimg/xr3_4D.jpg" width="57" height="20" alt="" border="0"></a></td>
+		<td width="64" height="20"><a href="colors.uhtm"><img src="/mvrimg/xr3_5E.jpg" width="64" height="20" alt="" border="0"></a></td>
+		<td width="111" height="20"><img src="/mvrimg/xr3_6F.jpg" width="111" height="20" alt="" border="0"></td>
+		<td width="55" height="20"><a href="start.uhtm"><img src="/mvrimg/xr3_7G.jpg" width="55" height="20" alt="" border="0"></a></td>
+		<td width="91" height="20"><a href="restart.uhtm"><img src="/mvrimg/xr3_8H.jpg" width="91" height="20" alt="" border="0"></a></td>
+		<td width="52" height="20" colspan="2"><a href="stop.uhtm"><img src="/mvrimg/xr3_9I.jpg" width="52" height="20" alt="" border="0"></a></td>
+	</tr>
+	<tr>
+		<td width="16" background="/mvrimg/xr3_10J.jpg" valign="top"><img src="/mvrimg/xr3_10J.jpg" width="16" alt="" border="0"></td>
+		<td width="520" colspan="8" bgcolor="#FFFFFF" valign="top">
+                <center><font size="2" face="Verdana" color="#000000">
+
+<img src="/mvrimg/xr3_x_ircsetup.jpg" width="514" height="20" alt="" border="0"><br>
+<table width="100%%" border="0" cellpadding="20" cellspacing="0">
+<tr><td align="left" valign="top">
+
+<form method="post" action="%PostAction%">
+
+
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td valign="top">
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#E32600"><b>Network Information:</b></font></td>
+  </tr>
+</table>
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td width="100"><font size="2" face="Verdana" color="#6A6A6A"><b>IRC Server:</b></font></td>
+    <td><input type="text" name="ServerAddr" size="30" value="%ServerAddr%"> &nbsp; <font size="2" face="Verdana" color="#6A6A6A"><b>Port:</b></font> <input type="text" name="ServerPort" size="5" value="%ServerPort%"></td>
+  </tr>
+  <tr>  
+    <td width="100"><font size="2" face="Verdana" color="#6A6A6A"><b>IRC Channel:</b></font></td>
+    <td><input type="text" name="Channel" size="30" value="%Channel%"></td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+
+
+
+<br>
+
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td valign="top">
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#E32600"><b>General Settings:</b></font></td>
+  </tr>
+</table>
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Use Server Auth:</b></font></td>
+    <td width="50"><input type="checkbox" name="bUseLogin" value="True"%bUseLogin%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Use Sec. Conn.:</b></font></td>
+    <td width="50"><input type="checkbox" name="bSecondaryLink" value="True"%bSecondaryLink%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Use SrvX Auth:</b></font></td>
+    <td width="50"><input type="checkbox" name="bUseSrvx" value="True"%bUseSrvx%></td>
+  </tr> 
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Invite (+i):</b></font></td>
+    <td width="50"><input type="checkbox" name="nInviteMe" value="True"%nInviteMe%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Use Ident:</b></font></td>
+    <td width="50"><input type="checkbox" name="jUseIdent" value="True"%jUseIdent%></td>
+  </tr> 
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Quakenet:</b></font></td>
+    <td width="50"><input type="checkbox" name="nQuakenet" value="True"%nQuakenet%></td>
+  </tr> 
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Use Mode +x:</b></font></td>
+    <td width="50"><input type="checkbox" name="bModeX" value="True"%bModeX%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Use Mode +m:</b></font></td>
+    <td width="50"><input type="hidden" name="xModeM" value="True"%xModeM%><font size="2" face="Verdana" color="#000000">[X]</font></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Use Binds:</b></font></td>
+    <td width="50"><input type="checkbox" name="bUseTBind" value="True"%bUseTBind%></td>
+  </tr>
+</table>
+
+    </td><td valign="top">
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#E32600"><b>Spree Settings:</b></font></td>
+  </tr>
+</table>
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Enable Sprees:</b></font></td>
+    <td width="50"><input type="checkbox" name="xReportSprees" value="True"%xReportSprees%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Start Sprees:</b></font></td>
+    <td width="50"><input type="checkbox" name="xReportBSprees" value="True"%xReportBSprees%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>End Sprees:</b></font></td>
+    <td width="50"><input type="checkbox" name="xReportESprees" value="True"%xReportESprees%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Enhanced Sprees:</b></font></td>
+    <td width="50"><input type="checkbox" name="xEnhancedSprees" value="True"%xEnhancedSprees%></td>
+  </tr>
+</table>
+
+<br>
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#E32600"><b>Extra Settings:</b></font></td>
+  </tr>
+</table>
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Censor Text:</b></font></td>
+    <td width="50"><input type="checkbox" name="xCensorText" value="True"%xCensorText%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Allow Shouting:</b></font></td>
+    <td width="50"><input type="checkbox" name="xAllowShouting" value="True"%xAllowShouting%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Show EUT MMI:</b></font></td>
+    <td width="50"><input type="checkbox" name="xReportMMI" value="True"%xReportMMI%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Show EUT Kills:</b></font></td>
+    <td width="50"><input type="checkbox" name="xDefaultKills" value="True"%xDefaultKills%></td>
+  </tr>
+</table>
+
+
+    </td>
+  </tr>
+</table>
+
+
+
+<br>
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#E32600"><b>IRC Message Delays:</b></font> &nbsp; <font size="1" face="Verdana" color="#000000">(Unavailable from Webadmin, Edit the INI)</font></td>
+  </tr>
+</table>
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td valign="top">
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>GameInfo Delay:</b></font></td>
+  </tr>
+  <tr>  
+    <td><input type="text" name="xGInfoDelay" size="25" value="Unavailable"></td>
+  </tr>
+</table>
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>GameDetails Delay:</b></font></td>
+  </tr>
+  <tr>  
+    <td><input type="text" name="xGDetailsDelay" size="25" value="Unavailable"></td>
+  </tr>
+</table>
+
+    </td><td valign="top">
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Score Delay:</b></font></td>
+  </tr>
+  <tr>  
+    <td><input type="text" name="xSDetailsDelay" size="25" value="Unavailable"></td>
+  </tr>
+</table>
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Anti Flood Delay:</b></font></td>
+  </tr>
+  <tr>  
+    <td><input type="text" name="xAFloodDelay" size="25" value="Unavailable"></td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td valign="top">
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#E32600"><b>Primary Connection:</b></font></td>
+  </tr>
+</table>
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Nick:</b></font></td>
+    <td><input type="text" name="NickName" size="20" value="%NickName%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Ident:</b></font></td>
+    <td><input type="text" name="jIdent" size="20" value="%jIdent%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>User:</b></font></td>
+    <td><input type="text" name="UserName" size="20" value="%UserName%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Pass:</b></font></td>
+    <td><input type="text" name="Password" size="20" value="%Password%"></td>
+  </tr>
+</table>
+
+
+    </td><td valign="top">
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#E32600"><b>Secondary Connection:</b></font></td>
+  </tr>
+</table>
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Nick:</b></font></td>
+    <td><input type="text" name="NickName2" size="20" value="%NickName2%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Ident:</b></font></td>
+    <td><input type="text" name="jIdent2" size="20" value="%jIdent2%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>User:</b></font></td>
+    <td><input type="text" name="UserName2" size="20" value="%UserName2%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Pass:</b></font></td>
+    <td><input type="text" name="Password2" size="20" value="%Password2%"></td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td valign="top">
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#E32600"><b>SrvX Auth:</b></font></td>
+  </tr>
+</table>
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>ChanServ:</b></font></td>
+    <td><input type="text" name="SrvxChan" size="15" value="%SrvxChan%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>NickServ:</b></font></td>
+    <td><input type="text" name="SrvxName" size="15" value="%SrvxName%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Account:</b></font></td>
+    <td><input type="text" name="SrvxAccount" size="15" value="%SrvxAccount%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Pass:</b></font></td>
+    <td><input type="text" name="SrvxPassword" size="15" value="%SrvxPassword%"></td>
+  </tr>
+</table>
+
+    </td><td valign="top">
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#E32600"><b>IRC Binds:</b></font></td>
+  </tr>
+</table>
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Map:</b></font></td>
+    <td><input type="text" name="TBindMap" size="15" value="%TBindMap%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Gameinfo:</b></font></td>
+    <td><input type="text" name="TBindGameInfo" size="15" value="%TBindGameInfo%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Specs:</b></font></td>
+    <td><input type="text" name="TBindSpecs" size="15" value="%TBindSpecs%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Specs2:</b></font></td>
+    <td><input type="text" name="TBindSpectators" size="15" value="%TBindSpectators%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Plrs:</b></font></td>
+    <td><input type="text" name="TBindPlayers" size="15" value="%TBindPlayers%"></td>
+  </tr>
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Say:</b></font></td>
+    <td><input type="text" name="TBindSay" size="15" value="%TBindSay%"></td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td valign="top">
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#E32600"><b>Network Perform:</b></font></td>
+  </tr>
+</table>
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td width="100"><font size="2" face="Verdana" color="#6A6A6A"><b>Perform1:</b></font></td>
+    <td><input type="text" name="Perform1" size="60" value="%Perform1%"></td>
+  </tr>
+  <tr> 
+    <td width="100"><font size="2" face="Verdana" color="#6A6A6A"><b>Perform2:</b></font></td>
+    <td><input type="text" name="Perform2" size="60" value="%Perform2%"></td>
+  </tr>
+  <tr> 
+    <td width="100"><font size="2" face="Verdana" color="#6A6A6A"><b>Perform3:</b></font></td>
+    <td><input type="text" name="Perform3" size="60" value="%Perform3%"></td>
+  </tr>
+  <tr> 
+    <td width="100"><font size="2" face="Verdana" color="#6A6A6A"><b>Perform4:</b></font></td>
+    <td><input type="text" name="Perform4" size="60" value="%Perform4%"></td>
+  </tr>
+  <tr> 
+    <td width="100"><font size="2" face="Verdana" color="#6A6A6A"><b>Perform5:</b></font></td>
+    <td><input type="text" name="Perform5" size="60" value="%Perform5%"></td>
+  </tr>
+  <tr> 
+    <td width="100"><font size="2" face="Verdana" color="#6A6A6A"><b>Perform6:</b></font></td>
+    <td><input type="text" name="Perform6" size="60" value="%Perform6%"></td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+
+
+
+<br>
+
+
+
+
+
+<br>
+<table width="100%%" border="0" cellpadding="0">
+  <tr>
+    <td align="left"><input type="submit" name="Apply" value="Apply Settings"></td>
+  </tr>
+</table>
+</form>
+
+
+
+
+
+
+
+
+
+</td></tr>
+</table>
+
+                </font>
+                <img src="/mvrimg/xr3_bottombar.jpg" width="506" height="32" alt="" border="0">
+                </center>
+                </td>
+		<td width="14" background="/mvrimg/xr3_11Kb.jpg" valign="top"><img src"/mvrimg/xr3_11K.jpg" width="14" alt="" border="0"></td>
+	</tr>
+	<tr>
+		<td width="550" height="27" colspan="10"><a href="http://neuroadvanced.com" target="_blank"><img src="/mvrimg/xr3_12L.jpg" width="550" height="27" alt="" border="0"></a></td>
+	</tr>
+	<tr>
+		<td width="16" height="1"><img src="/mvrimg/xr3_spacer.gif" width="16" height="1" alt="" border="0"></td>
+		<td width="68" height="1"><img src="/mvrimg/xr3_spacer.gif" width="68" height="1" alt="" border="0"></td>
+		<td width="36" height="1"><img src="/mvrimg/xr3_spacer.gif" width="36" height="1" alt="" border="0"></td>
+		<td width="57" height="1"><img src="/mvrimg/xr3_spacer.gif" width="57" height="1" alt="" border="0"></td>
+		<td width="64" height="1"><img src="/mvrimg/xr3_spacer.gif" width="64" height="1" alt="" border="0"></td>
+		<td width="111" height="1"><img src="/mvrimg/xr3_spacer.gif" width="111" height="1" alt="" border="0"></td>
+		<td width="55" height="1"><img src="/mvrimg/xr3_spacer.gif" width="55" height="1" alt="" border="0"></td>
+		<td width="91" height="1"><img src="/mvrimg/xr3_spacer.gif" width="91" height="1" alt="" border="0"></td>
+		<td width="38" height="1"><img src="/mvrimg/xr3_spacer.gif" width="38" height="1" alt="" border="0"></td>
+		<td width="14" height="1"><img src="/mvrimg/xr3_spacer.gif" width="14" height="1" alt="" border="0"></td>
+	</tr>
+</table>
+<table width="540" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="left"><font size="1" face="Verdana" color="#FFFFFF">%rVersion%</font></td>
+		<td align="right"><font size="1" face="Verdana" color="#d4d4d4">Thanks to: k3mist, Thor, Comic, & Rummy for helping test.</font></td>
+	</tr>
+</table>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>MvReporter 3.0 XR3 - Administration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body bgcolor="#454346">
+<center>
+<table width="550" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="550" height="73" colspan="10"><a href="root.uhtm"><img src="/mvrimg/xr3_1A.jpg" width="550" height="73" alt="" border="0"></a></td>
+	</tr>
+	<tr>
+		<td width="84" height="20" colspan="2"><a href="general.uhtm"><img src="/mvrimg/xr3_2B.jpg" width="84" height="20" alt="" border="0"></a></td>
+		<td width="36" height="20"><a href="irc.uhtm"><img src="/mvrimg/xr3_3C.jpg" width="36" height="20" alt="" border="0"></a></td>
+		<td width="57" height="20"><a href="teams.uhtm"><img src="/mvrimg/xr3_4D.jpg" width="57" height="20" alt="" border="0"></a></td>
+		<td width="64" height="20"><a href="colors.uhtm"><img src="/mvrimg/xr3_5E.jpg" width="64" height="20" alt="" border="0"></a></td>
+		<td width="111" height="20"><img src="/mvrimg/xr3_6F.jpg" width="111" height="20" alt="" border="0"></td>
+		<td width="55" height="20"><a href="start.uhtm"><img src="/mvrimg/xr3_7G.jpg" width="55" height="20" alt="" border="0"></a></td>
+		<td width="91" height="20"><a href="restart.uhtm"><img src="/mvrimg/xr3_8H.jpg" width="91" height="20" alt="" border="0"></a></td>
+		<td width="52" height="20" colspan="2"><a href="stop.uhtm"><img src="/mvrimg/xr3_9I.jpg" width="52" height="20" alt="" border="0"></a></td>
+	</tr>
+	<tr>
+		<td width="16" background="/mvrimg/xr3_10J.jpg" valign="top"><img src="/mvrimg/xr3_10J.jpg" width="16" alt="" border="0"></td>
+		<td width="520" colspan="8" bgcolor="#FFFFFF" valign="top">
+                <center><font size="2" face="Verdana" color="#000000">
+
+<img src="/mvrimg/xr3_x_welcome.jpg" width="514" height="20" alt="" border="0"><br>
+<table width="100%%" border="0" cellpadding="20" cellspacing="0">
+<tr><td align="left" valign="top">
+
+
+<font size="2" face="Verdana" color="#000000">
+Welcome to the MvReporter XR3 Admin area. Also known as 3.0.<br><br>
+
+From here you can configure/adjust most everything on this IRC Reporter,
+some things however do require a restart of the reporter or server
+to complete the requested action.<br><br>
+
+To get started, all you have to do is click a link at the top of the page
+to go where you want. You can always click the top banner at any time
+to return here.<br><br><br>
+
+Current Status: <font size="2" face="Verdana" color="#%repSColor%"><b>%repStatus%</b></font> &nbsp; &nbsp; (Debug: <font size="2" face="Verdana" color="#%repDColor%"><b>%repDebug%</b></font>)
+</font>
+
+
+</td></tr>
+</table>
+
+                </font>
+                <img src="/mvrimg/xr3_bottombar.jpg" width="506" height="32" alt="" border="0">
+                </center>
+                </td>
+		<td width="14" background="/mvrimg/xr3_11Kb.jpg" valign="top"><img src"/mvrimg/xr3_11K.jpg" width="14" alt="" border="0"></td>
+	</tr>
+	<tr>
+		<td width="550" height="27" colspan="10"><a href="http://neuroadvanced.com" target="_blank"><img src="/mvrimg/xr3_12L.jpg" width="550" height="27" alt="" border="0"></a></td>
+	</tr>
+	<tr>
+		<td width="16" height="1"><img src="/mvrimg/xr3_spacer.gif" width="16" height="1" alt="" border="0"></td>
+		<td width="68" height="1"><img src="/mvrimg/xr3_spacer.gif" width="68" height="1" alt="" border="0"></td>
+		<td width="36" height="1"><img src="/mvrimg/xr3_spacer.gif" width="36" height="1" alt="" border="0"></td>
+		<td width="57" height="1"><img src="/mvrimg/xr3_spacer.gif" width="57" height="1" alt="" border="0"></td>
+		<td width="64" height="1"><img src="/mvrimg/xr3_spacer.gif" width="64" height="1" alt="" border="0"></td>
+		<td width="111" height="1"><img src="/mvrimg/xr3_spacer.gif" width="111" height="1" alt="" border="0"></td>
+		<td width="55" height="1"><img src="/mvrimg/xr3_spacer.gif" width="55" height="1" alt="" border="0"></td>
+		<td width="91" height="1"><img src="/mvrimg/xr3_spacer.gif" width="91" height="1" alt="" border="0"></td>
+		<td width="38" height="1"><img src="/mvrimg/xr3_spacer.gif" width="38" height="1" alt="" border="0"></td>
+		<td width="14" height="1"><img src="/mvrimg/xr3_spacer.gif" width="14" height="1" alt="" border="0"></td>
+	</tr>
+</table>
+<table width="540" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="left"><font size="1" face="Verdana" color="#FFFFFF">%rVersion%</font></td>
+		<td align="right"><font size="1" face="Verdana" color="#d4d4d4">Thanks to: k3mist, Thor, Comic, & Rummy for helping test.</font></td>
+	</tr>
+</table>
+</center>
+
+</body>
+</html>

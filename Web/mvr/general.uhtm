@@ -1,0 +1,135 @@
+<html>
+<head>
+<title>MvReporter 3.0 XR3 - Administration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body bgcolor="#454346">
+<center>
+<table width="550" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="550" height="73" colspan="10"><a href="root.uhtm"><img src="/mvrimg/xr3_1A.jpg" width="550" height="73" alt="" border="0"></a></td>
+	</tr>
+	<tr>
+		<td width="84" height="20" colspan="2"><a href="general.uhtm"><img src="/mvrimg/xr3_2B.jpg" width="84" height="20" alt="" border="0"></a></td>
+		<td width="36" height="20"><a href="irc.uhtm"><img src="/mvrimg/xr3_3C.jpg" width="36" height="20" alt="" border="0"></a></td>
+		<td width="57" height="20"><a href="teams.uhtm"><img src="/mvrimg/xr3_4D.jpg" width="57" height="20" alt="" border="0"></a></td>
+		<td width="64" height="20"><a href="colors.uhtm"><img src="/mvrimg/xr3_5E.jpg" width="64" height="20" alt="" border="0"></a></td>
+		<td width="111" height="20"><img src="/mvrimg/xr3_6F.jpg" width="111" height="20" alt="" border="0"></td>
+		<td width="55" height="20"><a href="start.uhtm"><img src="/mvrimg/xr3_7G.jpg" width="55" height="20" alt="" border="0"></a></td>
+		<td width="91" height="20"><a href="restart.uhtm"><img src="/mvrimg/xr3_8H.jpg" width="91" height="20" alt="" border="0"></a></td>
+		<td width="52" height="20" colspan="2"><a href="stop.uhtm"><img src="/mvrimg/xr3_9I.jpg" width="52" height="20" alt="" border="0"></a></td>
+	</tr>
+	<tr>
+		<td width="16" background="/mvrimg/xr3_10J.jpg" valign="top"><img src="/mvrimg/xr3_10J.jpg" width="16" alt="" border="0"></td>
+		<td width="520" colspan="8" bgcolor="#FFFFFF" valign="top">
+                <center><font size="2" face="Verdana" color="#000000">
+
+<img src="/mvrimg/xr3_x_gensetup.jpg" width="514" height="20" alt="" border="0"><br>
+<table width="100%%" border="0" cellpadding="20" cellspacing="0">
+<tr><td align="left" valign="top">
+
+
+<form method="post" action="%PostAction%">
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td valign="top">
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Admin Password:</b></font></td>
+  </tr>
+  <tr>  
+    <td><input type="text" name="AdminPassword" size="30" value="%AdminPassword%"></td>
+  </tr>
+</table>
+<br>
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Public Commands:</b></font></td>
+    <td width="50"><input type="checkbox" name="bPublicComs" value="True"%bPublicComs%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Public Say (+v/+o):</b></font></td>
+    <td width="50"><input type="checkbox" name="bPublicSay" value="True"%bPublicSay%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Extra 1v1 Msgs:</b></font></td>
+    <td width="50"><input type="checkbox" name="bExtra1on1Stats" value="True"%bExtra1on1Stats%></td>
+  </tr>
+</table>
+
+    </td><td valign="top">
+
+
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td><font size="2" face="Verdana" color="#6A6A6A"><b>Ad Message:</b></font></td>
+  </tr>
+  <tr>  
+    <td><input type="text" name="AdMessage" size="30" value="%AdMessage%"></td>
+  </tr>
+</table>
+<br>
+<table width="100%%" border="0" cellpadding="0">
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Enable Ad Msg:</b></font></td>
+    <td width="50"><input type="checkbox" name="bAdvertise" value="True"%bAdvertise%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Enable Debug:</b></font></td>
+    <td width="50"><input type="checkbox" name="bDebug" value="True"%bDebug%></td>
+  </tr>
+  <tr> 
+    <td width="150"><font size="2" face="Verdana" color="#6A6A6A"><b>Mute Output:</b></font></td>
+    <td width="50"><input type="checkbox" name="bMuted" value="True"%bMuted%></td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+
+<br>
+<table width="100%%" border="0" cellpadding="0">
+  <tr>
+    <td align="left"><input type="submit" name="Apply" value="Apply Settings"></td>
+  </tr>
+</table>
+</form>
+
+
+</td></tr>
+</table>
+
+                </font>
+                <img src="/mvrimg/xr3_bottombar.jpg" width="506" height="32" alt="" border="0">
+                </center>
+                </td>
+		<td width="14" background="/mvrimg/xr3_11Kb.jpg" valign="top"><img src"/mvrimg/xr3_11K.jpg" width="14" alt="" border="0"></td>
+	</tr>
+	<tr>
+		<td width="550" height="27" colspan="10"><a href="http://neuroadvanced.com" target="_blank"><img src="/mvrimg/xr3_12L.jpg" width="550" height="27" alt="" border="0"></a></td>
+	</tr>
+	<tr>
+		<td width="16" height="1"><img src="/mvrimg/xr3_spacer.gif" width="16" height="1" alt="" border="0"></td>
+		<td width="68" height="1"><img src="/mvrimg/xr3_spacer.gif" width="68" height="1" alt="" border="0"></td>
+		<td width="36" height="1"><img src="/mvrimg/xr3_spacer.gif" width="36" height="1" alt="" border="0"></td>
+		<td width="57" height="1"><img src="/mvrimg/xr3_spacer.gif" width="57" height="1" alt="" border="0"></td>
+		<td width="64" height="1"><img src="/mvrimg/xr3_spacer.gif" width="64" height="1" alt="" border="0"></td>
+		<td width="111" height="1"><img src="/mvrimg/xr3_spacer.gif" width="111" height="1" alt="" border="0"></td>
+		<td width="55" height="1"><img src="/mvrimg/xr3_spacer.gif" width="55" height="1" alt="" border="0"></td>
+		<td width="91" height="1"><img src="/mvrimg/xr3_spacer.gif" width="91" height="1" alt="" border="0"></td>
+		<td width="38" height="1"><img src="/mvrimg/xr3_spacer.gif" width="38" height="1" alt="" border="0"></td>
+		<td width="14" height="1"><img src="/mvrimg/xr3_spacer.gif" width="14" height="1" alt="" border="0"></td>
+	</tr>
+</table>
+<table width="540" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="left"><font size="1" face="Verdana" color="#FFFFFF">%rVersion%</font></td>
+		<td align="right"><font size="1" face="Verdana" color="#d4d4d4">Thanks to: k3mist, Thor, Comic, & Rummy for helping test.</font></td>
+	</tr>
+</table>
+</center>
+
+</body>
+</html>
