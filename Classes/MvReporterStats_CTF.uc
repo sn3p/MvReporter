@@ -1,9 +1,10 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
@@ -20,28 +21,30 @@ function InLocalizedMessage( class<LocalMessage> Message, optional int Switch, o
 {
   local string sHigh, Player_1, Player_2;
   sHigh = "";
-  
+
   // *** SUDDEN DEATH / TEAM CHANGE ***
   if (ClassIsChildOf(Message, class'BotPack.DeathMatchMessage'))
     {
       switch(Switch)
 	{
 	// 0-overtime, 1-enteredgame, 2-namechange, 3-teamchange, 4-leftgame
+
 	// Overtime :)
 	case 0:
 	  SendIRCMessage(GetColoredMessage("", conf.colHigh, Message, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject));
 	  return;
-	
-        // Team Change
+
+	// Team Change
 	case 3:
-	  SendIRCMessage(GetColoredMessage("* ", conf.colGen, Message, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject));
+	  if (!conf.bSilent)
+	    SendIRCMessage(GetColoredMessage("* ", conf.colGen, Message, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject));
 	  return;
 	}
       return;
     }
 
   // *** FIRST BLOOD MESSAGE ***
-  if (ClassIsChildOf(Message, class'BotPack.FirstBloodMessage'))
+  if (ClassIsChildOf(Message, class'BotPack.FirstBloodMessage') && !conf.bSilent)
     {
       if (RelatedPRI_1.PlayerName == lastKiller)
 	SendIRCMessage(lastMessage);
@@ -50,8 +53,7 @@ function InLocalizedMessage( class<LocalMessage> Message, optional int Switch, o
     }
 
   // *** FRAG Messages ***
-  //if (ClassIsChildOf(Message, class'BotPack.DeathMessagePlus'))
-  if (InStr(Caps(Message), Caps("BotPack.DeathMessagePlus")) != -1)
+  if (InStr(Caps(Message), Caps("BotPack.DeathMessagePlus")) != -1 && !conf.bSilent)
     {
       // _1-killer, _2-victom, optional-weapon class
       // Save our message (maybe we need it l8er)
@@ -59,7 +61,7 @@ function InLocalizedMessage( class<LocalMessage> Message, optional int Switch, o
       lastVictim = RelatedPRI_2.PlayerName;
       lastSwitch = Switch;
       lastMessage = GetColoredMessage("", conf.colHead, Message, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject);
-      
+
       // If we have a flag drop in progress -> post that too
       // if (isStateDropping && (((droppedName == RelatedPRI_2.PlayerName) && (Related_PRI2 != none)) || ((droppedName == RelatedPRI_1.PlayerName) && (RelatedPRI_2 == none))){
       if (isStateDropping && (((RelatedPRI_2 == none) && (RelatedPRI_1.PlayerName == droppedName)) || ((RelatedPRI_2.PlayerName == droppedName) && (RelatedPRI_2 != none)) ))
@@ -74,7 +76,7 @@ function InLocalizedMessage( class<LocalMessage> Message, optional int Switch, o
     }
 
   // *** CTF Messages ***
-  if (ClassIsChildOf(Message, class'BotPack.CTFMessage'))
+  if (ClassIsChildOf(Message, class'BotPack.CTFMessage') && !conf.bSilent)
     {
       switch (Switch)
 	{
@@ -83,8 +85,8 @@ function InLocalizedMessage( class<LocalMessage> Message, optional int Switch, o
 	  SendIRCMessage(conf.colGen$ircUnderline$Message.static.GetString( Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject));
 	  SendScoreLine("New Score: ");
 	  return;
-	
-        // Dropped the Flag / Just store the Message to get it shown @ the next frag
+
+    // Dropped the Flag / Just store the Message to get it shown @ the next frag
 	case 2:
 	  isStateDropping = TRUE;
 	  droppedName = RelatedPRI_1.PlayerName;
@@ -92,15 +94,15 @@ function InLocalizedMessage( class<LocalMessage> Message, optional int Switch, o
 	  SendIRCMessage(droppedMessage);
 	  return;
 
-        // Default
-        default:
+    // Default
+    default:
 	  SendIRCMessage(conf.colGen$Message.static.GetString( Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject));
 	  return;
 	}
     }
 }
 
-  
+
 // Override Game Over event
 function OnGameOver()
 {
@@ -114,9 +116,9 @@ function OnScoreDetails()
   local PlayerReplicationInfo lPRI, BestPRI;
   local CTFFlag lFLAG;
   local int i;
-  
+
   SendScoreBoard("** Current Score: ");
-  
+
   // Search for Flag Carriers and spamm them
   for (i = 0; i < 32; i++)
     {
@@ -158,7 +160,7 @@ function SendScoreBoard(string sHeadLine, optional bool bTime)
   if (bTime)
     SendIRCMessage(" ", bTime);
   SendIRCMessage(conf.colGen$sHeadLine, bTime);
-  
+
   // Get Ping & PL 4 ScoreBoard
   for (iT = 0; iT < TeamGamePlus(Level.Game).MaxTeams; iT++)
     {
@@ -174,7 +176,7 @@ function SendScoreBoard(string sHeadLine, optional bool bTime)
 	    }
 	}
     }
-  
+
   // Spam out our stuff :)
   SendIRCMessage(conf.colHead$PostPad("Team-Name", 22, " ") $ "| " $ PrePad(sScoreStr, 5, " ") $ " | " $ PrePad("Ping", 4, " ") $ " | " $ PrePad("PL", 4, " ") $ " | " $ PrePad("PPL", 3, " ") $ " |", bTime);
   for (iT = 0; iT < TeamGamePlus(Level.Game).MaxTeams; iT++)
@@ -183,7 +185,7 @@ function SendScoreBoard(string sHeadLine, optional bool bTime)
       iPLArray[iT]    = iPLArray[iT] / TeamGamePlus(Level.Game).Teams[iT].Size;
       SendIRCMessage("> "$GetTeamColor(iT)$PostPad(conf.sTeams[iT], 20, " ") $ conf.colHead $ "| " $ GetTeamColor(iT) $ PrePad(string(int(TeamGamePlus(Level.Game).Teams[iT].Score)), 5, " ") $ conf.colHead $ " | " $ conf.colBody $ PrePad(string(iPingsArray[iT]), 4, " ") $ conf.colHead $ " | " $ conf.colBody $ PrePad(string(iPLArray[iT])$"%", 4, " ") $ conf.colHead $ " | " $ conf.colBody $ PrePad(TeamGamePlus(Level.Game).Teams[iT].Size, 3, " ") $ conf.colHead $ " |", bTime);
     }
-  
+
   if (bTime)
     SendIRCMessage(" ", bTime);
 }

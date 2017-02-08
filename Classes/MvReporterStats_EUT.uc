@@ -1,9 +1,10 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
@@ -43,7 +44,7 @@ function InLocalizedMessage( class<LocalMessage> Message, optional int Switch, o
     }
 
 
-  
+
   // Frags
   if (InStr(Caps(Message), Caps("BotPack.DeathMessagePlus")) != -1)
     {
@@ -53,7 +54,7 @@ function InLocalizedMessage( class<LocalMessage> Message, optional int Switch, o
       lastVictim = RelatedPRI_2.PlayerName;
       lastSwitch = Switch;
       lastMessage = GetColoredMessage("", conf.colHead, Message, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject);
-      
+
       // If we have a flag drop in progress -> post that too
       // if (isStateDropping && (((droppedName == RelatedPRI_2.PlayerName) && (Related_PRI2 != none)) || ((droppedName == RelatedPRI_1.PlayerName) && (RelatedPRI_2 == none))){
       if (isStateDropping && (((RelatedPRI_2 == none) && (RelatedPRI_1.PlayerName == droppedName)) || ((RelatedPRI_2.PlayerName == droppedName) && (RelatedPRI_2 != none)) ))
@@ -100,7 +101,7 @@ function InLocalizedMessage( class<LocalMessage> Message, optional int Switch, o
                    newKiller = conf.colGreen$RelatedPRI_1.PlayerName;
                if (RelatedPRI_1.Team == 3)
                    newKiller = conf.colGold$RelatedPRI_1.PlayerName;
-               
+
                if (RelatedPRI_2.Team == 0)
                    newVictom = conf.colRed$RelatedPRI_2.PlayerName;
                if (RelatedPRI_2.Team == 1)
@@ -109,7 +110,7 @@ function InLocalizedMessage( class<LocalMessage> Message, optional int Switch, o
                    newVictom = conf.colGreen$RelatedPRI_2.PlayerName;
                if (RelatedPRI_2.Team == 3)
                    newVictom = conf.colGold$RelatedPRI_2.PlayerName;
-               
+
                // Send
                if (newVictom != "" && newKiller != "")
                  SendIRCMessage(newKiller$conf.colHead$" inflicted mortal damage upon "$newVictom$conf.colHead$" with the Enhanced Shock Rifle.");
@@ -163,9 +164,9 @@ function OnScoreDetails()
   local PlayerReplicationInfo lPRI, BestPRI;
   local CTFFlag lFLAG;
   local int i;
-  
+
   SendScoreBoard("** Current Score: ");
-  
+
   // Search for Flag Carriers and spamm them
   for (i = 0; i < 32; i++)
     {
@@ -208,7 +209,7 @@ function SendScoreBoard(string sHeadLine, optional bool bTime)
   if (bTime)
     SendIRCMessage(" ", bTime);
   SendIRCMessage(conf.colGen$sHeadLine, bTime);
-  
+
   // Get Ping & PL 4 ScoreBoard
   for (iT = 0; iT < TeamGamePlus(Level.Game).MaxTeams; iT++)
     {
@@ -224,7 +225,7 @@ function SendScoreBoard(string sHeadLine, optional bool bTime)
 	    }
 	}
     }
-  
+
   // Spam out our stuff :)
   SendIRCMessage(conf.colHead$PostPad("Team-Name", 22, " ") $ "| " $ PrePad(sScoreStr, 5, " ") $ " | " $ PrePad("Ping", 4, " ") $ " | " $ PrePad("PL", 4, " ") $ " | " $ PrePad("PPL", 3, " ") $ " |", bTime);
   for (iT = 0; iT < TeamGamePlus(Level.Game).MaxTeams; iT++)
@@ -233,7 +234,7 @@ function SendScoreBoard(string sHeadLine, optional bool bTime)
       iPLArray[iT]    = iPLArray[iT] / TeamGamePlus(Level.Game).Teams[iT].Size;
       SendIRCMessage("> "$GetTeamColor(iT)$PostPad(conf.sTeams[iT], 20, " ") $ conf.colHead $ "| " $ GetTeamColor(iT) $ PrePad(string(int(TeamGamePlus(Level.Game).Teams[iT].Score)), 5, " ") $ conf.colHead $ " | " $ conf.colBody $ PrePad(string(iPingsArray[iT]), 4, " ") $ conf.colHead $ " | " $ conf.colBody $ PrePad(string(iPLArray[iT])$"%", 4, " ") $ conf.colHead $ " | " $ conf.colBody $ PrePad(TeamGamePlus(Level.Game).Teams[iT].Size, 3, " ") $ conf.colHead $ " |", bTime);
     }
-  
+
   if (bTime)
     SendIRCMessage(" ", bTime);
 }

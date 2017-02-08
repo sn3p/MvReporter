@@ -1,9 +1,10 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
@@ -28,29 +29,28 @@ event PreBeginPlay()
   bInitialized = TRUE;
 
   // Load...
-  conf = Spawn(class'MvReporterXR3.MvReporterConfig');
+  conf = Spawn(class'MvReporterXR3_Gambino.MvReporterConfig');
   LoadTeamNames();
   CheckIRCColors();
 
   // Start Reporter Engine
   conf.SaveConfig();
-  Log("+---------------------------+");
-  Log("| [Mv] Reporter 3.0.0 (XR3) |");
-  Log("+---------------------------+");
+  Log("+-------------------------------------------+");
+  Log("| [Mv] Reporter 3.0.0 (XR3) GAMBINO EDITION |");
+  Log("+-------------------------------------------+");
   InitReporter();
 }
-
 
 // FUNCTION: Enabled / Enable/Disable Reporter
 function InitReporter()
 {
   local Mutator M;
-  
+
   // Start IRC Link
   if (IRCLink == none)
-    IRCLink = Spawn(class'MvReporterXR3.MvReporterIRCLink');
+    IRCLink = Spawn(class'MvReporterXR3_Gambino.MvReporterIRCLink');
   if (IRCLink2 == none && conf.bSecondaryLink)
-    IRCLink2 = Spawn(class'MvReporterXR3.MvReporterIRCLink2');
+    IRCLink2 = Spawn(class'MvReporterXR3_Gambino.MvReporterIRCLink2');
   if (IRCLink == none || (IRCLink2 == none && conf.bSecondaryLink))
   {
     Log("++ [Mv]: Error Spawning IRC Link Class!");
@@ -66,7 +66,7 @@ function InitReporter()
     }
 
   if (Spectator == None)
-    Spectator = Level.Spawn(class'MvReporterXR3.MvReporterSpectator');
+    Spectator = Level.Spawn(class'MvReporterXR3_Gambino.MvReporterSpectator');
 
   Level.Game.BaseMutator.AddMutator(Level.Game.Spawn(class'MvReporterMutator'));
   M = Level.Game.BaseMutator;
@@ -119,6 +119,6 @@ function CheckIRCColors()
 
 defaultproperties
 {
-     sVersion="3.0 (XR3)"
-     sBuild="06/22/2006"
+     sVersion="3.0.2 (XR3) Gambino Edition"
+     sBuild="01/23/2013"
 }

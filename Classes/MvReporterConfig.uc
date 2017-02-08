@@ -1,17 +1,20 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
 class MvReporterConfig expands Actor;
 var string sTeams[4];
+
 var globalconfig bool   bEnabled;
 var globalconfig bool   bDebug;
 var globalconfig bool   bMuted;
+var globalconfig bool   bSilent;
 var globalconfig bool   bModeX;
 var globalconfig bool   bPublicComs;
 var globalconfig bool   bAdvertise;
@@ -65,8 +68,8 @@ var globalconfig bool   bSecondaryLink;
 var globalconfig string NickName2;
 var globalconfig string UserName2;
 var globalconfig string Password2;
-var globalconfig bool bExtra1on1Stats;
-var globalconfig bool bPublicSay;
+var globalconfig bool   bExtra1on1Stats;
+var globalconfig bool   bPublicSay;
 var globalconfig string teamRed;
 var globalconfig string teamBlue;
 var globalconfig string teamGreen;
@@ -88,11 +91,11 @@ defaultproperties
      xAllowShouting=True
      nInviteMe=True
      HopeIsEmo="True"
-     ServerAddr="irc.GameRadius.org"
+     ServerAddr="irc.quakenet.org"
      ServerPort=6667
-     Channel="#rival"
-     NickName="RepOrter"
-     AdMessage="This match is being broadcasted live to #RF on irc.GameRadius.org"
+     Channel="#gambino.live"
+     NickName="Reporter1"
+     AdMessage="This match is being broadcasted live to #gambino.live on irc.quakenet.org"
      tBindMap="!map"
      tBindGameInfo="!gameinfo"
      tBindSpecs="!specs"
@@ -104,7 +107,7 @@ defaultproperties
      xGInfoDelay=300.000000
      xGDetailsDelay=240.000000
      xSDetailsDelay=120.000000
-     NickName2="Rep0rter"
+     NickName2="Reporter2"
      teamRed="Red Team"
      teamBlue="Blue Team"
      teamGreen="Green Team"

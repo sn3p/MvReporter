@@ -1,9 +1,10 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
@@ -16,7 +17,7 @@ var MvReporterConfig conf;
 function bool HandlePickupQuery(Pawn Other, Inventory item, out byte bAllowPickup)
 {
 	local PlayerReplicationInfo PRI;
-	
+
 	PRI = Other.PlayerReplicationInfo;
 
 	if (Item.IsA('ThighPads'))
@@ -34,7 +35,7 @@ function bool HandlePickupQuery(Pawn Other, Inventory item, out byte bAllowPicku
 		return NextMutator.HandlePickupQuery(Other, item, bAllowPickup);
 }
 
-		
+
 
 defaultproperties
 {

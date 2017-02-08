@@ -1,9 +1,10 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
@@ -41,7 +42,6 @@ function Connect(MvReporter InController, MvReporterConfig InConfig)
   ReporterNick = conf.NickName;
   FullName = Controller.sVersion$" (Built: "$Controller.sBuild$")";
 
-
   // Set User IdentD
   ResetBuffer();
   ResetQueue();
@@ -51,11 +51,11 @@ function Connect(MvReporter InController, MvReporterConfig InConfig)
     {
       if (conf.jIdent != "" && (conf.jUseIdent))
         UserIdent = conf.jIdent;
-      else 
+      else
         {
           UserIdent = "xr3-";
           for(i = 0; i < 5; i++)
-          UserIdent = UserIdent $ Chr((Rand(10) + 48));      	
+          UserIdent = UserIdent $ Chr((Rand(10) + 48));
         }
     }
   Log("++ [Mv]: Created new UserIdent: "$UserIdent);
@@ -266,11 +266,11 @@ state LoggedIn
   	else
   	  SendBufferedData("PRIVMSG "$conf.SrvxChan$" :INVITEME "$conf.Channel$" "$CRLF);
   }
-  
+
 
   Log ("++ [Mv]: Primary - Joining Channel: "$conf.Channel);
   SendBufferedData("JOIN "$conf.Channel$CRLF);
-  
+
 
   // Execute perform commands - if any, after join.
   if (conf.bDebug)
@@ -304,18 +304,18 @@ function Tick(float DeltaTime)
    {
     iFloodCurrent = 0;
     GameSpeed = DeathMatchPlus(Level.Game).GameSpeed;
-    
+
     //For live xAFloodDelay value changes :P
     if (conf.bSecondaryLink)
       xAFloodDelay = conf.xAFloodDelay/2;
     else
       xAFloodDelay = conf.xAFloodDelay;
-    
+
     SendLine();
    }
 
   DoBufferQueueIO();
-  
+
   if (ReadBufferedLine(Line))
     ProcessInput(Line);
 }
@@ -326,7 +326,7 @@ function ProcessInput(string Line)
 {
   if (conf.bDebug)
     Log("++ [Mv Debug]: Primary - "$Line);
-  
+
   if (Left(Line, 5) == "PING ")
     SendBufferedData("PONG "$Mid(Line, 5)$CRLF);
 }
@@ -409,7 +409,7 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
 	    conf.SaveConfig();
 	    SendNotice(sOrigNick, "Changed Srvx Chan to '"$sParams[2]$"'!");
 	  }
-          
+
       // Set SrvxName
       if (sParams[0] ~= "srvxname")
 	if (CheckPassword(sParams[1], sOrigNick))
@@ -418,7 +418,7 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
 	    conf.SaveConfig();
 	    SendNotice(sOrigNick, "Changed Srvx Name to '"$sParams[2]$"'!");
 	  }
-      
+
       // Set SrvxAccount
       if (sParams[0] ~= "srvxaccount")
 	if (CheckPassword(sParams[1], sOrigNick))
@@ -427,7 +427,7 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
 	    conf.SaveConfig();
 	    SendNotice(sOrigNick, "Changed Srvx Account '"$sParams[2]$"'!");
 	  }
-      
+
       // Set SrvxPassword
       if (sParams[0] ~= "srvxpassword")
 	if (CheckPassword(sParams[1], sOrigNick))
@@ -445,7 +445,7 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
 	    conf.SaveConfig();
 	    SendNotice(sOrigNick, "Changed Bind for Map to '"$sParams[2]$"'!");
 	  }
-      
+
       // Set tBindGameInfo
       if (sParams[0] ~= "bindgameinfo")
 	if (CheckPassword(sParams[1], sOrigNick))
@@ -454,7 +454,7 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
 	    conf.SaveConfig();
 	    SendNotice(sOrigNick, "Changed Bind for GameInfo to '"$sParams[2]$"'!");
 	  }
-      
+
       // Set tBindSpecs
       if (sParams[0] ~= "bindspecs")
 	if (CheckPassword(sParams[1], sOrigNick))
@@ -463,7 +463,7 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
 	    conf.SaveConfig();
 	    SendNotice(sOrigNick, "Changed Bind for Specs to '"$sParams[2]$"'!");
 	  }
-      
+
       // Set tBindSpectators
       if (sParams[0] ~= "bindspectators")
 	if (CheckPassword(sParams[1], sOrigNick))
@@ -472,7 +472,7 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
 	    conf.SaveConfig();
 	    SendNotice(sOrigNick, "Changed Bind for Spectators to '"$sParams[2]$"'!");
 	  }
-      
+
       // Set tBindPlayers
       if (sParams[0] ~= "bindplayers")
 	if (CheckPassword(sParams[1], sOrigNick))
@@ -490,7 +490,7 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
 	    conf.SaveConfig();
 	    SendNotice(sOrigNick, "Changed Bind for Say to '"$sParams[2]$"'!");
 	  }
-      
+
       // Set jIdent
       if (sParams[0] ~= "ident")
 	if (CheckPassword(sParams[1], sOrigNick))
@@ -530,7 +530,7 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
 	    Controller.LoadTeamNames();
 	    SendNotice(sOrigNick, "Changed Team Name of 'red' to '"$sParams[2]$"'!");
 	  }
-      
+
       // Set Blue Team Name
       if (sParams[0] ~= "teamblue")
 	if (CheckPassword(sParams[1], sOrigNick))
@@ -563,7 +563,7 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
 	    Controller.LoadTeamNames();
 	    SendNotice(sOrigNick, "Changed Team Name of 'gold' to '"$sParams[2]$"'!");
 	  }
-      
+
       // Team Name Reset
       if (sParams[0] ~= "teamsreset")
 	if (CheckPassword(sParams[1], sOrigNick))
@@ -635,7 +635,7 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
 
     // GOD, FUCK EPICGAMES!!
     // Change Reporter's Port
-    //if (sParams[0] ~= "serverport")
+    // if (sParams[0] ~= "serverport")
     //  if (CheckPassword(sParams[1], sOrigNick))
     //    {
     //      sParams[2] = ChopLeft(ParseDelimited(sLine, " ", 6, FALSE));
@@ -687,6 +687,40 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
 	  ConsoleCommand("servertravel "$sParams[2]);
 	}
 
+	// ConsoleCommand
+    if (sParams[0] ~= "admin")
+      if (CheckPassword(sParams[1], sOrigNick))
+	{
+	  SendNotice(sOrigNick, ConsoleCommand(sParams[2]));
+	}
+
+	// RemainingTime
+    if (sParams[0] ~= "remainingtime")
+      if (CheckPassword(sParams[1], sOrigNick))
+	{
+	  SendNotice(sOrigNick, "remainingtime: "$string(Spec.Stats.GRI.RemainingTime));
+	}
+
+	// GamePassword
+    if (sParams[0] ~= "gamepassword")
+      if (CheckPassword(sParams[1], sOrigNick))
+	{
+	  if (sParams[2] == "") {
+		SendNotice(sOrigNick, "gamepassword: "$ConsoleCommand("get engine.gameinfo GamePassword"));
+	  }
+	  else {
+		// sParams[2] = ChopLeft(ParseDelimited(sLine, " ", 6, FALSE));
+		// SendNotice(sOrigNick, ConsoleCommand("set engine.gameinfo GamePassword "$sParams[2]));
+		ConsoleCommand("set engine.gameinfo GamePassword "$sParams[2]);
+	  }
+	}
+
+	// PingPong
+    if (sParams[0] ~= "ping")
+	{
+	  SendNotice(sOrigNick, "pong");
+	}
+
     // Kick Player!!
     if (sParams[0] ~= "kick" || sParams[0] ~= "kickban")
       if (CheckPassword(sParams[1], sOrigNick))
@@ -695,7 +729,7 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
 	  iFound = 0;
 	  for (P = Level.PawnList; P!=None; P=P.NextPawn)
 	    {
-	      if (PlayerPawn(P) != none &&  P.PlayerReplicationInfo != none &&  NetConnection(PlayerPawn(P).Player) != none)
+	      if (PlayerPawn(P) != none && P.PlayerReplicationInfo != none && NetConnection(PlayerPawn(P).Player) != none)
 		{
 		  if (sParams[2] ~= P.PlayerReplicationInfo.PlayerName)
 		    {
@@ -785,7 +819,7 @@ function ProcessPrivMsg(string sOrigNick, string sNickFlags, string sDestNick, s
                         if (sParams[0] == "!players")
                             Controller.Spectator.Stats.QueryPlayers(sOrigNick);
 
-                        if (sParams[0] == "!say") 
+                        if (sParams[0] == "!say")
                           {
                                  if (conf.bPublicSay)
                                    {
@@ -911,11 +945,11 @@ static final function string ReplaceText(coerce string Text, coerce string Repla
 {
     local int i;
     local string Output;
-    
+
     i = InStr(Text, Replace);
-    while (i != -1) {   
+    while (i != -1) {
         Output = Output $ Left(Text, i) $ With;
-        Text = Mid(Text, i + Len(Replace)); 
+        Text = Mid(Text, i + Len(Replace));
         i = InStr(Text, Replace);
     }
     Output = Output $ Text;

@@ -1,9 +1,10 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
@@ -29,9 +30,9 @@ function OnGameDetails()
       if (lPRI==None)
         continue;
       if (!lPRI.bIsSpectator)
-	if (lPRI_1 != none) 
+	if (lPRI_1 != none)
 	  lPRI_2 = lPRI;
-	else 
+	else
 	  lPRI_1 = lPRI;
     }
   if (lPRI_1 == none)

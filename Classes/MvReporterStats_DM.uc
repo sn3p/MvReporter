@@ -1,9 +1,10 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
@@ -21,7 +22,7 @@ function Initialize()
   super.Initialize();
   TGRI = TournamentGameReplicationInfo(GRI);
 
-  // Initiate Class Timer :)
+  // Initiate Class Timer
   SetTimer(3, TRUE);
 }
 
@@ -30,9 +31,11 @@ function InClientMessage(coerce string S, optional name Type, optional bool bBee
 {
   local string sNick, sMessage;
   local bool bIsSpec;
+  local bool bSend;
   local int i;
   local PlayerReplicationInfo lPRI;
   bIsSpec = FALSE;
+  bSend = TRUE;
 
   sNick = Link.ParseDelimited(S, ":", 1);
   if (Len(sNick) > 0) {
@@ -48,8 +51,31 @@ function InClientMessage(coerce string S, optional name Type, optional bool bBee
 	}
     }
   }
+
+  /*
   if (!bIsSpec)
     SendIRCMessage(conf.colGen $ "* " $ S);
+  */
+
+  if (!bIsSpec) {
+    if (conf.bSilent) {
+      // Allow entered or left
+      if (InStr(S, "entered the game") > 0 || InStr(S, "left the game") > 0) {
+        bSend = TRUE;
+      }
+	  // Allow admin login or logout
+      else if (InStr(S, "became a server administrator") > 0 || InStr(S, "gave up administrator abilities") > 0) {
+        bSend = TRUE;
+      }
+	  // Skip all other messages
+      else {
+        bSend = FALSE;
+      }
+    }
+    // Send to IRC?
+    if (bSend)
+      SendIRCMessage(conf.colGen $ "* " $ S);
+  }
 
   // Check wheater we have a JOIN Message!
   // If so -> reset Kills in a row to zer0
@@ -174,11 +200,11 @@ static final function string ReplaceText(coerce string Text, coerce string Repla
 {
     local int i;
     local string Output;
-    
+
     i = InStr(Text, Replace);
-    while (i != -1) {   
+    while (i != -1) {
         Output = Output $ Left(Text, i) $ With;
-        Text = Mid(Text, i + Len(Replace)); 
+        Text = Mid(Text, i + Len(Replace));
         i = InStr(Text, Replace);
     }
     Output = Output $ Text;
@@ -200,8 +226,8 @@ function InLocalizedMessage( class<LocalMessage> Message, optional int Switch, o
 	case 0:
 	  sHigh = conf.colHigh;
 	  break;
-	
-        // Team Change
+
+	// Team Change
 	case 3:
 	  SendIRCMessage(conf.colGen$"* "$conf.colHead$RelatedPRI_1.PlayerName$" is now on " $ GetTeamColor(RelatedPRI_1.Team) $ TeamInfo(OptionalObject).TeamName);
 	  return;
@@ -234,11 +260,11 @@ function SendIRCMessage(string msg, optional bool bNoTime)
 {
   local string Time;
   local string Message;
-  
+
   // Check is null or blank
   if (msg == "" || msg == conf.colHead)
     return;
-  
+
   // Check if EUT MMI's are in the message
   if (conf.xReportMMI == False)
     {
@@ -273,14 +299,14 @@ function OnAdvertise()
     	if (conf.AdMessage != "")
         BroadCastMessage(conf.AdMessage);
     }
-  else 
+  else
     {
       BroadCastMessage("http://rivalflame.com - irc.GameRadius.org - #Rival");
     	if (conf.AdMessage != "")
         BroadCastMessage(conf.AdMessage);
     }
   bDoneAd = True;
-  
+
   // Mode +m check here...
   if (conf.xModeM)
     {
@@ -298,7 +324,7 @@ event Timer()
       if (!Link.bIsConnected || !Link2.bIsConnected)
         return;
     }
-  else 
+  else
     {
       if (!Link.bIsConnected)
         return;
@@ -422,7 +448,7 @@ function ProcessKillingSpree(int Switch, optional PlayerReplicationInfo RelatedP
     // Report sprees?
     if (conf.xReportSprees)
       {
-        
+
         // Enhanced sprees?
         if (conf.xEnhancedSprees)
           {
@@ -442,10 +468,10 @@ function ProcessKillingSpree(int Switch, optional PlayerReplicationInfo RelatedP
                 if (iRowKills[iID_2] > 29)
 	          SendIRCMessage(conf.colHigh$RelatedPRI_2.PlayerName$"'s Wicked Sick Spree was ended by"$" "$RelatedPRI_1.PlayerName$"!");
               }
-              
+
             iRowKills[iID_2] = 0;
             iRowKills[iID_1] += 1;
-              
+
             if (conf.xReportBSprees)
               {
               switch (iRowKills[iID_1])
@@ -473,10 +499,10 @@ function ProcessKillingSpree(int Switch, optional PlayerReplicationInfo RelatedP
                 if (iRowKills[iID_2] > 4)
 	            SendIRCMessage(conf.colHigh$RelatedPRI_2.PlayerName$"'s Killing Spree was ended by"$" "$RelatedPRI_1.PlayerName$"!");
               }
-            
+
             iRowKills[iID_2] = 0;
             iRowKills[iID_1] += 1;
-            
+
             if (conf.xReportBSprees)
               {
                 switch (iRowKills[iID_1])
@@ -521,7 +547,7 @@ function OnGameDetails()
 {
   local int i;
   local PlayerReplicationInfo lPRI, bestPRI;
-  
+
   // Get the best PRI
   for (i = 0; i < 32; i++)
     {
