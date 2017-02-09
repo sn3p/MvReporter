@@ -1,3 +1,18 @@
+# Mavericks IRC Reporter for UT99
+
+- [Introduction](#introduction)
+- [Changelog](#changelog)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Config Explanation](#config-explanation)
+- [UTGL](#utgl-ut-global-login-system)
+- [Webadmin](#webadmin)
+- [Commands](#commands)
+- [Notes](#notes)
+
+
+## Introduction
+
 Mavericks IRC Reporter is an Unreal Tournament 99 Server Actor, which connects to an IRC Server defined by an admin and posts messages from the game into the channel. This lets people follow any game without being on the server themselves.
 
 Note that many IRC networks only allow a certain number of connections from a single host. (Which are called "Clones".) Average networks only allow up to 5 of these "Clones" before applying what is called a G-Line. Some networks do not allow bots, so be sure to check the IRC Network's AUP, TOS, or MOTD first.
@@ -5,7 +20,7 @@ Note that many IRC networks only allow a certain number of connections from a si
 Side note: 3.0.1 changes only the webadmin, the images folder is now mvrimg. You'll need to add an additional 2 lines to your servers ini.
 
 
-# Changelog
+## Changelog
 
 ### 3.0.1:
 
@@ -562,8 +577,8 @@ Changes the !say bind to var. (eg: @say)
 
 ## Notes
 
-1. This is a modified version of Mavericks IRC Reporter v2.0 beta2 originally by [Mv]DarkViper, www.mvreporter.de
-which was edited by Rush. I have released an updated version (3.0 XR3) since people liked what I did.
+1. This is a modified version of Mavericks IRC Reporter v2.0 beta2 originally by [Mv]DarkViper,
+which was edited by Rush. Altgamer released an updated version (3.0 XR3).
 
 2. This is **!EXPERIMENTAL!** and not finished. Or maybe it is. Who knows.
 
@@ -571,9 +586,9 @@ which was edited by Rush. I have released an updated version (3.0 XR3) since peo
 
 If either debug, or text censoring is on the server may lag slightly.
 
-Stupid little thing for anybody that asks, the X in XR3 doesn't really mean anything. It's just there incase a R3 version (Release 3) is actually made by another author. Unless that author names one xr3 also, in that case I suppose naming this one that is kind of pointless then.
+Stupid little thing for anybody that asks, the X in XR3 doesn't really mean anything. It's just there incase a R3 version (Release 3) is actually made by another author. Unless that author names one XR3 also, in that case I suppose naming this one that is kind of pointless then.
 
-I provide NO gurantee's this actor will not malfunction, mess up, crash, burn, fondle, attempt to take over the world, or otherwise fault. By using this you agree I cannot and WILL NOT be held responsible for ANYTHING that happens from this, either direct or associated.
+I provide NO guarantees this actor will not malfunction, mess up, crash, burn, fondle, attempt to take over the world, or otherwise fault. By using this you agree I cannot and WILL NOT be held responsible for ANYTHING that happens from this, either direct or associated.
 Only thing I ask that by using this, you will not remove the ad in place if you set Advertising to True in webadmin or ini by modifying this script.
 
 Also note, the Webadmin design, style and graphics are Copyright © 2002 - 2006 Rivalflame.com, All rights reserved.
@@ -581,9 +596,9 @@ Rivalflame.com is also run and operated by NeuroAdvanced, LLC and is copyrighted
 
 Should you get the Source Edition (Marked with "SE" at the top of the file), which includes a Source folder in addition to System and Web, you agree NOT to remove the ad from any of the included source files and ANY other decompiled source files you get by other methods.
 
-Also, I am not a perfect programmer by far for unrealscript. I do not know weither or not the modifications contained in this will impact, effect, or otherwise alter performance of servers.
+Also, I (Altgamer) am not a perfect programmer by far for UnrealScript. I do not know whether or not the modifications contained in this will impact, effect, or otherwise alter performance of servers.
 
-Should you choose to distribute this, you may NOT resell, sell or other means collect ANY money from this in ANY way. Weither it be affiliated by including this actor with something else, or by itself. You may distribute this for FREE so long as this readme and all source/compiled files remain UNCHANGED, intact and included in the distribution file.
+Should you choose to distribute this, you may NOT resell, sell or other means collect ANY money from this in ANY way. Whether it be affiliated by including this actor with something else, or by itself. You may distribute this for FREE so long as this README and all source/compiled files remain UNCHANGED, intact and included in the distribution file.
 
-**By using this, you agree to this weither or not you have read this.**  
+**By using this, you agree to this whether or not you have read this.**  
 (And if it does try to take over the world, It's your problem.)
