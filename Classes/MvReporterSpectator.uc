@@ -1,9 +1,10 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
@@ -29,7 +30,7 @@ function Engage(MvReporter InController, MvReporterIRCLink InLink, MvReporterIRC
   Controller = InController;
   Link = InLink;
   Link2 = InLink2;
-  
+
   // 1 on 1 is only applied for DM
   GameClass = caps(GetItemName(string(Level.Game.Class)));
   if (GameClass == "DEATHMATCHPLUS" || GameClass == "EUTDEATHMATCHPLUS")
@@ -45,7 +46,7 @@ function Engage(MvReporter InController, MvReporterIRCLink InLink, MvReporterIRC
   else if (GameClass == "TEAMGAMEPLUS" || GameClass == "EUTTEAMGAMEPLUS")
     {
       StatsClass = class'MvReporterStats_TDM';
-    } 
+    }
   else if (GameClass == "CTFGAME")
     {
       StatsClass = class'MvReporterStats_CTF';
@@ -57,7 +58,7 @@ function Engage(MvReporter InController, MvReporterIRCLink InLink, MvReporterIRC
   else if (GameClass == "DOMINATION")
     {
       StatsClass = class'MvReporterStats_DOM';
-    } 
+    }
   else if (GameClass == "LASTMANSTANDING")
     {
       StatsClass = class'MvReporterStats_LMS';
@@ -65,7 +66,7 @@ function Engage(MvReporter InController, MvReporterIRCLink InLink, MvReporterIRC
   else if (Left(string(Level), 3)=="BT-" || Left(string(Level), 5)=="CTF-BT-")
     {
       StatsClass = class'MvReporterStats_BT';
-    } 
+    }
   else
       StatsClass = class'MvReporterStats_DM';
 
@@ -88,7 +89,7 @@ function Engage(MvReporter InController, MvReporterIRCLink InLink, MvReporterIRC
 
   // Spawn Actor
   Stats = Spawn(StatsClass);
-  
+
   // Check if spawn was success
   if (Stats == none)
     {

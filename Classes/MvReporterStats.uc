@@ -1,9 +1,10 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
@@ -77,8 +78,8 @@ function string GetStrTime(int Time)
 {
   local int m;
   local int s;
-  //  local string str;
-  
+  // local string str;
+
   m = (Time % 3600) / 60;
   s = Time % 60;
   return PrePad(string(m),2,"0") $ ":" $ PrePad(string(s),2,"0");
@@ -88,14 +89,14 @@ function String GetClientVoiceMessageString(PlayerReplicationInfo Sender, Player
 {
   local VoicePack V;
   local String sStr;
-  
+
   if ((Sender == None) || (Sender.voicetype == None))
     return "";
-  
+
   V = Spawn(Sender.voicetype, self);
   if (V == none)
     return "";
-  
+
   if (messagetype == 'ACK')
     sStr = sStr $ ChallengeVoicePack(V).static.GetAckString(messageID);
   else

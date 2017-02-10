@@ -1,86 +1,31 @@
-Mavericks IRC Reporter is an Unreal Tournament 99 Server Actor, which connects to an IRC Server defined by an admin and posts messages from the game into the channel. This lets people follow any game without being on the server themselves.
+# Mavericks IRC Reporter for UT99
 
-Note that many IRC networks only allow a certain number of connections from a single host. (Which are called "Clones".) Average networks only allow up to 5 of these "Clones" before applying what is called a G-Line. Some networks do not allow bots, so be sure to check the IRC Network's AUP, TOS, or MOTD first.
+MvReporter is an Unreal Tournament 99 Server Actor, which connects to an IRC Server defined by an admin and posts messages from the game into the channel. This lets people follow any game without being on the server themselves.
 
-Side note: 3.0.1 changes only the webadmin, the images folder is now mvrimg. You'll need to add an additional 2 lines to your servers ini.
+It was originally developed by [Mv]DarkViper and later edited which was edited by Rush (v2.0 beta2).
+Altgamer released an updated version (3.0 XR3), after which sn3p released the Gambino Edition.
 
+Note that many IRC networks only allow a certain number of connections from a single host (which are called "Clones".) Average networks only allow up to 5 of these "Clones" before applying what is called a G-Line. Some networks do not allow bots, so be sure to check the IRC Network's AUP, TOS, or MOTD first.
 
-# Changelog
+### Table of Contents
 
-### 3.0.1:
-
-- Attempted fix of webadmin.
-
-### 3.0 final:
-
-- Added Idents.
-- Added an inviteme option. (Untested)
-- Added Quakenet info.
-- Added censor. (irc only)
-- Added enhanced sprees.
-- Added show begin/end sprees.
-- Added option to not show EUT's MMI's.
-- Added shout blocking. (all lowercase text)
-- Added default kills. (hotfix for eut)
-- Added Srvx Chanserv info.
-- Added 3 new performs.
-- Added message delays to ini.
-- Changed perform. (1-3 before join, 4-6 after join)
-- Removed Quakenet auth.
-- Updated readme.
-
-### 3.0 rev2 (nrc):
-
-- Fixed server ad message to not show ip address.
-- Fixed irc setting bug (public say/extra 1on1 info unset).
-- Added EUT gametypes (EUT_1G).
-- Added +x on connect option.
-- Added editable ad message.
-- Added bot pm commands for ad message / +x.
-- Added Webadmin options for ad message / +x.
-- Moved perform before channel join.
-- Updated default server.
-- Updated readme.
-
-### 3.0 rev1 (nrc):
-
-- Fixed 2 webadmin bugs. (options wouldn't set.)
-- Fixed a typo.. :x
-- Added srvx auth configuration.
-- Added bindable triggers.
-- Added new bot pm commands for binds/srvx.
-- Added +h support. (half-op)
-- Added readme.
-
-### 2.0 beta2:
-
-- Fixed few bugs.
-- Added PublicSay feature.
-
-### 2.0 beta1:
-
-- First release.
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Config Explanation](#config-explanation)
+- [Commands](#commands)
+- [Changelog](CHANGELOG.md)
 
 
 ## Installation
 
-Mavericks IRC Reporter comes with the following files:
+1. Add the mutator's class to the ServerActors (not ServerPackages!) list in the `[Engine.GameEngine]` section in UnrealTournament.ini (or whatever ini file you/your host has). This should go after or at the end of the list of server ServerActors:
 
-**`README.md`** - Readme, this file.  
-**`System/MvReporterXR3_Gambino.u`** - The main actor package.  
-**`System/MvReporterXR3_Gambino.int`** - Data file.  
-**`Web/mvr/*.uhtm`** - Webadmin files.  
-**`Web/mvrimg/*.jpg|*.gif`** - Webadmin images.  
-
-### Installation for the most part, is easy..
-
-1. Add the mutator's class to the ServerActors (not ServerPackages!) list in the `[Engine.GameEngine]` section in UnrealTournament.ini (or whatever ini file you/your host has).  
-This should go after or at the end of the list of serveractors.
 ```ini
 ServerActors=MvReporterXR3_Gambino.MvReporter
 ```
 
-2. Add the following 4 lines in the `[UWeb.WebServer]` section in UnrealTournament.ini
+2. Add the following 4 lines in the `[UWeb.WebServer]` section in UnrealTournament.ini:
+
 ```ini
 Applications[3]=MvReporterXR3_Gambino.MvReporterAdmin
 ApplicationPaths[3]=/mvr
@@ -88,7 +33,7 @@ Applications[4]=MvReporterXR3_Gambino.MvReporterImage
 ApplicationPaths[4]=/mvrimg
 ```
 
-**Note:** The numbers within the brackets may vary due to the number of webapplications already installed. Adjust it as needed.
+**Note:** The numbers within the brackets may vary due to the number of webapps already installed. Adjust it as needed.
 
 3. Copy the contents of the "System" directory to the "System" directory on your UT Server.  
 (Do not upload the system folder INTO the system folder, only the contents!) (`*.u|*.int`).  
@@ -103,15 +48,16 @@ This bot doesn't have to be added to the ServerPackages list. In fact, I recomme
 ## Configuration
 
 This bot is almost fully configurable from it's custom webadmin interface.
-The entire configuration is stored in your UnrealTournament.ini file. Most of the options can be found in the section `[MvReporterXR3.MvReporter]`.
+The entire configuration is stored in your UnrealTournament.ini file. Most of the options can be found in the section `[MvReporterXR3_Gambino.MvReporterConfig]`.
 
 Place this at the **END** of your UnrealTournament.ini:
 
 ```ini
-[MvReporterXR3.MvReporterConfig]
+[MvReporterXR3_Gambino.MvReporterConfig]
 bEnabled=True
 bDebug=False
 bMuted=False
+bSilent=False
 bPublicComs=True
 bPublicSay=True
 bAdvertise=True
@@ -133,11 +79,11 @@ xReportESprees=False
 xReportMMI=False
 xAllowShouting=False
 xDefaultKills=False
-AdMessage=This match is being broadcasted live to #RF on irc.GameRadius.org
+AdMessage=This match is being broadcasted live to #gambino.live on irc.quakenet.org
 AdminPassword=admin
-ServerAddr=irc.GameRadius.org
+ServerAddr=irc.quakenet.org
 ServerPort=6667
-Channel=#Rival
+Channel=#gambino.live
 NickName=Reporter1
 Username=
 Password=
@@ -182,8 +128,8 @@ colGold=08
 colHigh=11
 ```
 
-After doing so, I recommend to edit the `ServerAddr`, `ServerPort`, `Channel` and `NickName`.
-If you plan to run the bot on a non-bot server, you may want to set `bSecondaryLink` to `True`, and then edit `NickName2` also.
+I recommend to edit the `ServerAddr`, `ServerPort`, `Channel`, `NickName`, `AdminPassword` and `AdMessage`.
+If you plan to run the bot on a non-bot server, you may want to set `bSecondaryLink` and `NickName2` to `True`.
 
 
 ## Config Explanation
@@ -198,6 +144,9 @@ Enables server log debugging. Should only be on if you're having problems. (true
 
 **`bMuted=False`**
 Mutes the reporters output. (true/false)
+
+**`bSilent=False`**
+Mute all messages except Players entering/leaving, Admin login/logout, Overtime, Current/Final Score. (true/false)
 
 **`bPublicComs=True`**
 Lets people use !map, !players, etc.. (true/false)
@@ -404,27 +353,6 @@ Color used to for the gold team in teamgames.
 Important messages like killingsprees or first blood events are shown in this color.
 
 
-## UTGL (UT Global Login System)
-
-If you don't know what is it just visit http://unrealadmin.org > Forums > UTGL and download the latest version.
-If UTGL is on, MvReporter will show player logins in player lists.
-
-As of 3.0 Final, XR3: This is unsupported and untested. Use at your own risk.
-
-
-## Webadmin
-
-1. You can call it in the `/mvr` directory on your server ip and the webadmin port in your web browser (e.g. http://1.2.3.4:80/mvr)
-
-2. Please use the following login data for the mvr webadmin
-
-Username: mvr
-Password: The adminpassword from the config. (default: admin)
-
-**Warning:** This version of MvR should not be used from the SuperWebAdmin areas that control MvR. Doing so may and probably will corrupt the MvR settings.
-At no time is it recommended to use or attempt anything via SWA for MvR. In the future this will be renamed to prevent conflicts with SWA and so that SWA will simply not show it.
-
-
 ## Commands
 
 
@@ -448,7 +376,7 @@ Displays the current players in the game.
 **`!say <message>`**  
 Sends a message from IRC to the Gameserver as.. Name (IRC): [message]
 
-----
+--
 
 ### PM Commands: (<x> means required, [x] means optional.)
 
@@ -542,6 +470,42 @@ Changes the !players bind to var. (eg: @players)
 **`/msg BotName bindsay <adminpassword> <var>`**  
 Changes the !say bind to var. (eg: @say)
 
+**`/msg BotName admin <adminpassword> <string>`**  
+Run admin/console command on the gameserver. (eg: set engine.gameinfo GamePassword war)
+
+**`/msg BotName remainingtime <adminpassword>`**  
+Returns remaining time in seconds.
+
+**`/msg BotName gamepassword <adminpassword>`**  
+Returns the game password.
+
+**`/msg BotName gamepassword <adminpassword> <string>`**  
+Sets the game password.
+
+**`/msg BotName ping <adminpassword>`**  
+Returns "pong" if the bot is connected.
+
+
+## Webadmin
+
+1. You can call it in the `/mvr` directory on your server ip and the webadmin port in your web browser (e.g. http://1.2.3.4:80/mvr)
+
+2. Please use the following login data for the mvr webadmin
+
+Username: mvr
+Password: The adminpassword from the config. (default: admin)
+
+**Warning:** This version of MvR should not be used from the SuperWebAdmin areas that control MvR. Doing so may and probably will corrupt the MvR settings.
+At no time is it recommended to use or attempt anything via SWA for MvR. In the future this will be renamed to prevent conflicts with SWA and so that SWA will simply not show it.
+
+
+## UTGL (UT Global Login System)
+
+If you don't know what is it just visit http://unrealadmin.org > Forums > UTGL and download the latest version.
+If UTGL is on, MvReporter will show player logins in player lists.
+
+As of 3.0 Final, XR3: This is unsupported and untested. Use at your own risk.
+
 
 ## Known Bugs (maybe?)
 
@@ -560,10 +524,10 @@ Changes the !say bind to var. (eg: @say)
 7. DM etc doesn't report kills if using EUT or other. - Will be fixed in future.
 
 
-## Notes
+## Disclaimer
 
-1. This is a modified version of Mavericks IRC Reporter v2.0 beta2 originally by [Mv]DarkViper, www.mvreporter.de
-which was edited by Rush. I have released an updated version (3.0 XR3) since people liked what I did.
+1. This is a modified version of Mavericks IRC Reporter v2.0 beta2 originally by [Mv]DarkViper,
+which was edited by Rush. Altgamer released an updated version (3.0 XR3). sn3p released this Gambino Edition.
 
 2. This is **!EXPERIMENTAL!** and not finished. Or maybe it is. Who knows.
 
@@ -571,9 +535,9 @@ which was edited by Rush. I have released an updated version (3.0 XR3) since peo
 
 If either debug, or text censoring is on the server may lag slightly.
 
-Stupid little thing for anybody that asks, the X in XR3 doesn't really mean anything. It's just there incase a R3 version (Release 3) is actually made by another author. Unless that author names one xr3 also, in that case I suppose naming this one that is kind of pointless then.
+Stupid little thing for anybody that asks, the X in XR3 doesn't really mean anything. It's just there incase a R3 version (Release 3) is actually made by another author. Unless that author names one XR3 also, in that case I suppose naming this one that is kind of pointless then.
 
-I provide NO gurantee's this actor will not malfunction, mess up, crash, burn, fondle, attempt to take over the world, or otherwise fault. By using this you agree I cannot and WILL NOT be held responsible for ANYTHING that happens from this, either direct or associated.
+I provide NO guarantees this actor will not malfunction, mess up, crash, burn, fondle, attempt to take over the world, or otherwise fault. By using this you agree I cannot and WILL NOT be held responsible for ANYTHING that happens from this, either direct or associated.
 Only thing I ask that by using this, you will not remove the ad in place if you set Advertising to True in webadmin or ini by modifying this script.
 
 Also note, the Webadmin design, style and graphics are Copyright © 2002 - 2006 Rivalflame.com, All rights reserved.
@@ -581,9 +545,9 @@ Rivalflame.com is also run and operated by NeuroAdvanced, LLC and is copyrighted
 
 Should you get the Source Edition (Marked with "SE" at the top of the file), which includes a Source folder in addition to System and Web, you agree NOT to remove the ad from any of the included source files and ANY other decompiled source files you get by other methods.
 
-Also, I am not a perfect programmer by far for unrealscript. I do not know weither or not the modifications contained in this will impact, effect, or otherwise alter performance of servers.
+Also, I (Altgamer) am not a perfect programmer by far for UnrealScript. I do not know whether or not the modifications contained in this will impact, effect, or otherwise alter performance of servers.
 
-Should you choose to distribute this, you may NOT resell, sell or other means collect ANY money from this in ANY way. Weither it be affiliated by including this actor with something else, or by itself. You may distribute this for FREE so long as this readme and all source/compiled files remain UNCHANGED, intact and included in the distribution file.
+Should you choose to distribute this, you may NOT resell, sell or other means collect ANY money from this in ANY way. Whether it be affiliated by including this actor with something else, or by itself. You may distribute this for FREE so long as this README and all source/compiled files remain UNCHANGED, intact and included in the distribution file.
 
-**By using this, you agree to this weither or not you have read this.**  
+**By using this, you agree to this whether or not you have read this.**  
 (And if it does try to take over the world, It's your problem.)

@@ -1,9 +1,10 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
@@ -46,11 +47,11 @@ function Connect(MvReporter InController, MvReporterConfig InConfig)
     {
       if (conf.jIdent2 != "" && (conf.jUseIdent))
         UserIdent = conf.jIdent2;
-      else 
+      else
         {
           UserIdent = "xr3-";
           for(i = 0; i < 5; i++)
-          UserIdent = UserIdent $ Chr((Rand(10) + 48));      	
+          UserIdent = UserIdent $ Chr((Rand(10) + 48));
         }
     }
   Log("++ [Mv]: Secondary link - Created new UserIdent: "$UserIdent);
@@ -226,7 +227,7 @@ state LoggedIn
   if (conf.Perform1 != "") SendBufferedData(conf.Perform1$LF);
   if (conf.Perform2 != "") SendBufferedData(conf.Perform2$LF);
   if (conf.Perform3 != "") SendBufferedData(conf.Perform3$LF);
-  
+
 
   // Send mode +x?
   if (conf.bModeX)
@@ -234,7 +235,7 @@ state LoggedIn
     Log("++ [Mv]: Secondary - Sent Mode "$conf.NickName2$" +ix");
     SendBufferedData("MODE "$conf.NickName2$" +ix"$LF);
   }
-  
+
 
   if (conf.nInviteMe)
   {
@@ -244,7 +245,7 @@ state LoggedIn
   	else
   	  SendBufferedData("PRIVMSG "$conf.SrvxChan$" :INVITEME "$conf.Channel$" "$CRLF);
   }
-  
+
 
   Log ("++ [Mv]: Secondary - Joining Channel: "$conf.Channel);
   SendBufferedData("JOIN "$conf.Channel$CRLF);

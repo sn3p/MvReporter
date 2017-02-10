@@ -1,9 +1,10 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
@@ -39,20 +40,20 @@ event Query(WebRequest Request, WebResponse Response)
   {
     // Search for our reporter
     GetReporterClass();
-    
+
     // No U!
     if (conf == none)
       {
         Response.SendText("<html><body><B>ERROR : MvReporter Class not found!</B></body></html>");
         return;
       }
-      
-    // Authentication  
+
+    // Authentication
     if (!((Request.Username ~= "mvr") && (Request.Password ~= conf.AdminPassword))) {
       Response.FailAuthentication("MvR XR3 Admin");
       return;
     }
-    
+
     // Pages
     Response.Subst("BugAddress", "alt@rivalflame.com");
     switch (Mid(Request.URI, 1))
@@ -60,8 +61,8 @@ event Query(WebRequest Request, WebResponse Response)
       case "":
         QueryXR3Root(Request, Response);
         break;
-      case "root.uhtm": 
-        QueryXR3Root(Request, Response); 
+      case "root.uhtm":
+        QueryXR3Root(Request, Response);
         break;
       case "start.uhtm":
         QueryXR3Start(Request, Response);
@@ -241,7 +242,7 @@ function QueryXR3General(WebRequest Request, WebResponse Response)
       // Save
       conf.SaveConfig();
     }
-  
+
   Response.Subst("rVersion", rVersion);
   Response.Subst("PostAction", "general.uhtm");
   Response.IncludeUHTM("mvr/general.uhtm");
@@ -260,7 +261,7 @@ function QueryXR3IRC(WebRequest Request, WebResponse Response)
   local string SrvxName, SrvxAccount, SrvxPassword, TBindMap, TBindGameInfo, TBindSpecs, TBindSpectators, TBindPlayers, TBindSay;
   local string Perform1, Perform2, Perform3, Perform4, Perform5, Perform6;
   local string nInviteMe, nQuakenet, jUseIdent, jIdent, jIdent2, SrvxChan;
-  
+
   // Data
   ServerAddr = Request.GetVariable("ServerAddr", conf.ServerAddr);
   ServerPort = Request.GetVariable("ServerPort", string(conf.ServerPort));
@@ -293,7 +294,7 @@ function QueryXR3IRC(WebRequest Request, WebResponse Response)
   UserName2 = Request.GetVariable("UserName2", conf.UserName2);
   Password2 = Request.GetVariable("Password2", conf.Password2);
   jIdent2 = Request.GetVariable("jIdent2", conf.jIdent2);
-  
+
   SrvxChan = Request.GetVariable("SrvxChan", conf.SrvxChan);
   SrvxName = Request.GetVariable("SrvxName", conf.SrvxName);
   SrvxAccount = Request.GetVariable("SrvxAccount", conf.SrvxAccount);
@@ -399,7 +400,7 @@ function QueryXR3IRC(WebRequest Request, WebResponse Response)
       conf.ServerAddr = Controller.IRCLink.ParseDelimited(ServerAddr, " ", 1);
       conf.ServerPort = int(Controller.IRCLink.ParseDelimited(ServerPort, " ", 1));
       conf.Channel = Controller.IRCLink.ParseDelimited(Channel, " ", 1);
-      
+
       // Fuck you epic games, FUCK YOU. compile error my ass.
       // conf.xGInfoDelay = Controller.IRCLink.ParseDelimited(xGInfoDelay, " ", 1)
       // conf.xGDetailsDelay = Controller.IRCLink.ParseDelimited(xGDetailsDelay, " ", 1);
@@ -507,11 +508,11 @@ function QueryXR3IRC(WebRequest Request, WebResponse Response)
 		conf.jUseIdent = True;
       else
 		conf.jUseIdent = False;
-		
+
       // Save!
       conf.SaveConfig();
     }
-    
+
   Response.Subst("rVersion", rVersion);
   Response.Subst("PostAction", "irc.uhtm");
   Response.IncludeUHTM("mvr/irc.uhtm");
@@ -524,13 +525,13 @@ function QueryXR3Teams(WebRequest Request, WebResponse Response)
 {
   local string teamRed, teamBlue, teamGreen, teamGold;
   Response.Subst("rVersion", rVersion);
-  
+
   // Data
   teamRed = Request.GetVariable("teamRed", conf.teamRed);
   teamBlue = Request.GetVariable("teamBlue", conf.teamBlue);
   teamGreen = Request.GetVariable("teamGreen", conf.teamGreen);
   teamGold = Request.GetVariable("teamGold", conf.teamGold);
-  
+
   // Replacements
   Response.Subst("teamRed", teamRed);
   Response.Subst("teamBlue", teamBlue);
@@ -544,7 +545,7 @@ function QueryXR3Teams(WebRequest Request, WebResponse Response)
       conf.teamBlue = teamBlue;
       conf.teamGreen = teamGreen;
       conf.teamGold = teamGold;
-      
+
       // Save!
       conf.SaveConfig();
       Controller.LoadTeamNames();
@@ -563,7 +564,7 @@ function QueryXR3Teams(WebRequest Request, WebResponse Response)
       Response.ClearSubst();
       return;
     }
-  
+
   Response.Subst("PostAction", "teams.uhtm");
   Response.IncludeUHTM("mvr/teams.uhtm");
   Response.ClearSubst();
@@ -575,7 +576,7 @@ function QueryXR3Colors(WebRequest Request, WebResponse Response)
 {
   local string colGen, colTime, colHead, colBody, colHigh;
   local string colRed, colBlue, colGreen, colGold;
-  
+
   // Data
   colGen = Request.GetVariable("colGen", conf.colGen);
   colTime = Request.GetVariable("colTime", conf.colTime);
@@ -586,7 +587,7 @@ function QueryXR3Colors(WebRequest Request, WebResponse Response)
   colBlue = Request.GetVariable("colBlue", conf.colBlue);
   colGreen = Request.GetVariable("colGreen", conf.colGreen);
   colGold = Request.GetVariable("colGold", conf.colGold);
-  
+
   // Replacements
   Response.Subst("colGen", colGen);
   Response.Subst("colTime", colTime);
@@ -597,7 +598,7 @@ function QueryXR3Colors(WebRequest Request, WebResponse Response)
   Response.Subst("colBlue", colBlue);
   Response.Subst("colGreen", colGreen);
   Response.Subst("colGold", colGold);
-  
+
   // Apply Button?...
   if (Request.GetVariable("Apply", "") == "Apply Settings")
     {
@@ -610,7 +611,7 @@ function QueryXR3Colors(WebRequest Request, WebResponse Response)
       conf.colBlue = Controller.IRCLink.ParseDelimited(colBlue, " ", 1);
       conf.colGreen = Controller.IRCLink.ParseDelimited(colGreen, " ", 1);
       conf.colGold = Controller.IRCLink.ParseDelimited(colGold, " ", 1);
-      
+
       // Save!
       Controller.CheckIRCColors();
     }

@@ -1,9 +1,10 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
@@ -35,7 +36,7 @@ function InLocalizedMessage( class<LocalMessage> Message, optional int Switch, o
 	  return;
 	}
     }
-  
+
   // *** FIRST BLOOD MESSAGE ***
   if (ClassIsChildOf(Message, class'BotPack.FirstBloodMessage'))
     {
@@ -52,10 +53,10 @@ function InLocalizedMessage( class<LocalMessage> Message, optional int Switch, o
       lastVictim = RelatedPRI_2.PlayerName;
       lastSwitch = Switch;
       lastMessage = GetColoredMessage("", conf.colHead, Message, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject);
-      
+
       // Killing Spree ?
       ProcessKillingSpree(Switch, RelatedPRI_1, RelatedPRI_2);
-      
+
       return;
     }
 
@@ -94,9 +95,9 @@ function OnScoreDetails()
   local int i, iT;
   local PlayerReplicationInfo lPRI, bestPRI;
   local int iPingsArray[4], iPLArray[4];
-  
+
   SendIRCMessage(conf.colGen$"** Team Status Information:");
-  
+
   // Get the best PRI and save Ping & PL 4 ScoreBoard
   for (iT = 0; iT < TeamGamePlus(Level.Game).MaxTeams; iT++)
     {
@@ -116,7 +117,7 @@ function OnScoreDetails()
 	    }
 	}
     }
-  
+
   // Spamm out our stuff :)
   SendIRCMessage(conf.colHead$PostPad("Team-Name", 22, " ") $ "| " $ PrePad(sScoreStr, 5, " ") $ " | " $ PrePad("Ping", 4, " ") $ " | " $ PrePad("PL", 4, " ") $ " | " $ PrePad("PPL", 3, " ") $ " |");
   for (iT = 0; iT < TeamGamePlus(Level.Game).MaxTeams; iT++)

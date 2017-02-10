@@ -1,9 +1,10 @@
 //////////////////////////////////////////////////////////////////////\
 //                                                                   /|
-//  Unreal Tournament IRC Reporter - Copyright © Thomas Pajor, 2001  /|
+//  Unreal Tournament IRC Reporter - Copyright Â© Thomas Pajor, 2001  /|
 //  ---------------------------------------------------------------  /|
 //  Programmed by [Mv]DarkViper, Enhanced by Rush (rush@u.one.pl)    /|
 //  And given spice by Altgamer (alt@rivalflame.com)                 /|
+//  Gambino Edition by sn3p (snap@gambino.nl)                        /|
 //                                                                   /|
 ///////////////////////////////////////////////////////////////////////
 
@@ -335,6 +336,13 @@ function Mutate(string MutateString, PlayerPawn Sender)
 						else if (ValueString == "False" || ValueString=="")
 							conf.jUseIdent = False;
 						Sender.ClientMessage("Applied."); break;
+					case "SILENT ":
+						if (ValueString == "True")
+							conf.bSilent = True;
+						else if (ValueString == "False" || ValueString=="")
+							conf.bSilent = False;
+						Sender.ClientMessage("Applied."); break;
+
 				}
 				conf.SaveConfig();
 			}
@@ -426,7 +434,7 @@ function Mutate(string MutateString, PlayerPawn Sender)
 						Sender.ClientMessage(string(conf.bExtra1on1Stats)); break;
 					case "BPUBLICSAY":
 						Sender.ClientMessage(string(conf.bPublicSay)); break;
-					
+
                                         case "ENHANCEDSPREES":
 						Sender.ClientMessage(string(conf.xEnhancedSprees)); break;
 					case "REPORTSPREES":
